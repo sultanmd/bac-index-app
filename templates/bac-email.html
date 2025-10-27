@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" style="margin:0;padding:0;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAC Index Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: linear-gradient(135deg, #f79020, #c41230);
+      color: #333333;
+    }
+    .container {
+      max-width: 640px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .header {
+      background: linear-gradient(135deg, #f79020, #c41230);
+      color: #ffffff;
+      text-align: center;
+      padding: 32px 24px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+    }
+    .content {
+      padding: 32px 24px;
+      line-height: 1.6;
+    }
+    .content h2 {
+      color: #c41230;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .summary-box {
+      background-color: #fff5f5;
+      border-left: 5px solid #c41230;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+    .summary-box strong {
+      font-size: 20px;
+      color: #c41230;
+    }
+    .recommendations ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .recommendations li {
+      margin-bottom: 8px;
+    }
+    .footer {
+      background: #fafafa;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #666666;
+      border-top: 1px solid #eee;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #f79020, #c41230);
+      color: white !important;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .emoji {
+      font-size: 24px;
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>BAC Index Results</h1>
+      <p style="margin-top:6px;font-size:14px;">Your personalized biological age report</p>
+    </div>
+
+    <div class="content">
+      <p>Hi <strong>{{name}}</strong>,</p>
+      <p>Here’s your <strong>BAC Index Assessment</strong> summary:</p>
+
+      <div class="summary-box">
+        <p>
+          Physiological Age: <strong>{{physAge}} yrs</strong><br/>
+          Biological Age: <strong>{{bioAge}} yrs</strong><br/>
+          Difference: <strong style="color:{{diffColor}};">{{diffText}}</strong> years {{emoji}}
+        </p>
+      </div>
+
+      <h2>Top Factors Increasing Biological Age</h2>
+      <ul>
+        {{#each topFactors}}
+          <li>{{this.label}} (+{{this.score}})</li>
+        {{/each}}
+      </ul>
+
+      <h2>Recommendations</h2>
+      <div class="recommendations">
+        <ul>
+          {{#each recommendations}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <p>Keep improving your daily habits — small changes can make a big impact!</p>
+      <a href="#" class="btn">View Full Report →</a>
+    </div>
+
+    <div class="footer">
+      <p>© {{year}} BAC Index | Confidential Health Report</p>
+      <p>Generated for {{name}} ({{email}}) | {{company}} | {{designation}}</p>
+    </div>
+  </div>
+</body>
+</html>

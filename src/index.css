@@ -1,0 +1,10 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+button {
+  cursor: pointer;
+  transition: 0.2s;
+}
